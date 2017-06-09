@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>Spring Thyme Seed Starter Manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all" href="../css/stsm.css" th:href="@{/css/stsm.css}"/>
+  </head>
+
+  <body>
+
+    <div>
+      <img src="../images/stsmlogo.png" alt="STSM logo" title="STSM logo"
+           th:src="@{/images/stsmlogo.png}" th:alt-title="#{title.application}"/>
+    </div>
+    
+    <div class="seedstarterlist" th:unless="${#lists.isEmpty(accountinfo)}">
+    
+      <h2 th:text="#{title.list}">List of Seed Starters</h2>
+      
+      <table>
+        <thead>
+          <tr>
+            <th th:text="#{accountinfo.username}">username</th>
+            <th th:text="#{accountinfo.email}">email</th>
+            <th th:text="#{accountinfo.firstName}">firstName</th>
+            <th th:text="#{accountinfo.lastName}">lastName</th>
+            <th th:text="#{accountinfo.addr1}">addr1</th>
+            <th th:text="#{accountinfo.city}">city</th>
+            <th th:text="#{accountinfo.phone}">phone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="sb : ${accountinfo}">
+            <td th:text="${sb.username}">zsc</td>
+            <td th:text="${sb.email}">sidney@126.com</td>
+            <td th:text="${sb.firstName}">sidney</td>
+            <td th:text="${sb.lastName}">zhang</td>
+            <td th:text="${sb.address1}">addr1</td>
+            <td th:text="${sb.city}">city</td>
+            <td th:text="${sb.phone}">phone</td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+
+
+    <div>
+
+      <h2 th:text="#{title.new}">Add new Seed Starter</h2>
+
+      <form action="#" th:action="@{/accountinfo}" th:object="${account}" method="post">
+
+        <fieldset>
+
+          <legend th:text="#{accountinfo.data}">Seed Starter Data</legend>
+
+          <ul th:if="${#fields.hasErrors('*')}" class="errorlist">
+            <li th:each="err : ${#fields.errors('*')}" th:text="${err}">输入错误</li>
+          </ul>
+
+
+          <div>
+            <label for="username">
+              <span th:text="#{accountinfo.username}">username</span>
+            </label>
+            <input type="text" th:field="*{username}" th:errorclass="fieldError" />
+          </div>
+          <div>
+            <label for="email">
+              <span th:text="#{accountinfo.email}">email</span>
+            </label>
+            <input type="text" th:field="*{email}" th:errorclass="fieldError" />
+          </div>
+          <div>
+            <label for="firstName">
+              <span th:text="#{accountinfo.firstName}">firstName</span>
+            </label>
+            <input type="text" th:field="*{firstName}" th:errorclass="fieldError" />
+          </div>
+          <div>
+            <label for="lastName">
+              <span th:text="#{accountinfo.lastName}">lastName</span>
+            </label>
+            <input type="text" th:field="*{lastName}" th:errorclass="fieldError" />
+          </div>
+          <div>
+            <label for="address1">
+              <span th:text="#{accountinfo.addr1}">addr1</span>
+            </label>
+            <input type="text" th:field="*{address1}" th:errorclass="fieldError" />
+          </div>
+          <div>
+            <label for="city">
+              <span th:text="#{accountinfo.city}">city</span>
+            </label>
+            <input type="text" th:field="*{city}" th:errorclass="fieldError" />
+          </div>
+          <div>
+            <label for="phone">
+              <span th:text="#{accountinfo.phone}">phone</span>
+            </label>
+            <input type="text" th:field="*{phone}" th:errorclass="fieldError" />
+          </div>
+
+          <div class="submit">
+            <button type="submit" name="save" th:text="#{accountinfo.create}">Add Seed Starter</button>
+          </div>
+
+        </fieldset>
+
+      </form>
+
+    </div>
+
+  </body>
+</html>
