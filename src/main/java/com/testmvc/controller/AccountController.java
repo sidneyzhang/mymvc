@@ -30,17 +30,17 @@ public class AccountController {
     @Autowired
     private AccountService accountService;
 
-//    @ModelAttribute("allAccount")
-//    public List<Account> populateSeedStarters() {
-//        return this.accountService.getAccountList();
-//    }
+    @ModelAttribute("accountinfo")
+    public List<Account> prepareAccountInfo() {
+        return this.accountService.getAccountList();
+    }
 
     @RequestMapping("/accountinfo")
     public String showAccount(Model model,final Account account) {
         log.info("查询账户信息");
-        List<Account> accountinfo= this.accountService.getAccountList();
-        log.info("账户条数:"+ ListUtils.size(accountinfo));
-        model.addAttribute("accountinfo",accountinfo);
+//        List<Account> accountinfo= this.accountService.getAccountList();
+//        log.info("账户条数:"+ ListUtils.size(accountinfo));
+        this.prepareAccountInfo();
         return "accountinfo";
 
     }
