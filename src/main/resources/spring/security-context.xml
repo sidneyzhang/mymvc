@@ -10,8 +10,8 @@
         <form-login login-page="/contacts" authentication-failure-url="/security/loginfail"
                     default-target-url="/contacts"/>
         <logout logout-success-url="/contacts"/>
-
     </http>
+
     <authentication-manager>
         <authentication-provider>
             <user-service>
