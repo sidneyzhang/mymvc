@@ -1,7 +1,7 @@
 package com.testmvc.service;
 
 import com.testmvc.domain.Account;
-import com.testmvc.mapper.AccountMapper;
+import com.testmvc.mapper.inf.AccountMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

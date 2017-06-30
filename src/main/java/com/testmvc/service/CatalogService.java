@@ -1,16 +1,16 @@
 package com.testmvc.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.testmvc.domain.Category;
 import com.testmvc.domain.Item;
 import com.testmvc.domain.Product;
-import com.testmvc.mapper.CategoryMapper;
-import com.testmvc.mapper.ItemMapper;
-import com.testmvc.mapper.ProductMapper;
+import com.testmvc.mapper.inf.CategoryMapper;
+import com.testmvc.mapper.inf.ItemMapper;
+import com.testmvc.mapper.inf.ProductMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The Class CatalogService.
@@ -19,11 +19,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class CatalogService {
 
-  @Autowired
+    @Autowired(required = false)
   private CategoryMapper categoryMapper;
-  @Autowired
+    @Autowired(required = false)
   private ItemMapper itemMapper;
-  @Autowired
+    @Autowired(required = false)
   private ProductMapper productMapper;
 
   public List<Category> getCategoryList() {

@@ -1,4 +1,4 @@
-package com.testmvc.mapper;
+package com.testmvc.mapper.inf;
 
 import com.testmvc.domain.Product;
 

@@ -1,20 +1,20 @@
 package com.testmvc.service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.testmvc.domain.Item;
 import com.testmvc.domain.LineItem;
 import com.testmvc.domain.Order;
 import com.testmvc.domain.Sequence;
-import com.testmvc.mapper.ItemMapper;
-import com.testmvc.mapper.LineItemMapper;
-import com.testmvc.mapper.OrderMapper;
-import com.testmvc.mapper.SequenceMapper;
+import com.testmvc.mapper.inf.ItemMapper;
+import com.testmvc.mapper.inf.LineItemMapper;
+import com.testmvc.mapper.inf.OrderMapper;
+import com.testmvc.mapper.inf.SequenceMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * The Class OrderService.
@@ -23,13 +23,13 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class OrderService {
 
-  @Autowired
+    @Autowired(required = false)
   private ItemMapper itemMapper;
-  @Autowired
+    @Autowired(required = false)
   private OrderMapper orderMapper;
-  @Autowired
+    @Autowired(required = false)
   private SequenceMapper sequenceMapper;
-  @Autowired
+    @Autowired(required = false)
   private LineItemMapper lineItemMapper;
 
   /**
