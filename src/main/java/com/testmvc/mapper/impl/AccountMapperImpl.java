@@ -38,7 +38,7 @@ public class AccountMapperImpl implements AccountMapper {
     @Override
     public void insertAccount(Account account) {
         SqlSession session = sqlSessionFactory.openSession();
-        session.insert("com.testmvc.mapper.inf.AccountMapper.insertAccount");
+        session.insert("com.testmvc.mapper.inf.AccountMapper.insertAccount", account);
 
     }
 
